@@ -66,13 +66,7 @@
 					if (LCs[i].value!="" && LCs[i].value!="-1") {
 						var p = d.rsvd.concat(d.um_p); // used pin array
 						d.Sf.querySelectorAll("select.pin").forEach((e)=>{if(e.value>-1)p.push(parseInt(e.value));}) // buttons, IR & relay
-						if (p.some((e)=>e==parseInt(LCs[i].value))) {
-							alert(`Sorry, pins ${JSON.stringify(p)} can't be used.`);
-							LCs[i].value="";
-							LCs[i].focus();
-							return false;
-						}
-						else if (/*!(nm == "IR" || nm=="BT") &&*/ d.ro_gpio.some((e)=>e==parseInt(LCs[i].value))) {
+						if (/*!(nm == "IR" || nm=="BT") &&*/ d.ro_gpio.some((e)=>e==parseInt(LCs[i].value))) {
 							alert(`Sorry, pins ${JSON.stringify(d.ro_gpio)} are input only.`);
 							LCs[i].value="";
 							LCs[i].focus();
